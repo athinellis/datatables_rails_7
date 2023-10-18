@@ -62,7 +62,7 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 
-  gem 'capistrano',                 '3.11.2'
+  gem 'capistrano',                 '3.17.2'
   gem 'capistrano-rails',           '1.4.0'
   gem 'capistrano-rbenv',           '2.1.4 '
   gem 'capistrano-passenger',       '0.2.0'
