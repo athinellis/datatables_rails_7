@@ -1,10 +1,10 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.11.2"
+lock "~> 3.17.2"
 
 set :scm, :git
 set :application, 'testapp'
 set :repo_url, '/home/deploy/git-repo/my-git-repo.git'
-set :deploy_to, "/home/deploy/#{fetch :application}"
+set :deploy_to, '/opt/www/testapp'
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'#set :linked_dirs, fetch(:linked_dirs) + %w{private/uploads/drawing private/uploads/painting}
 set :keep_releases, 5
 #set :shared_children, shared_children + %w{private/uploads/drawing private/uploads/painting}
