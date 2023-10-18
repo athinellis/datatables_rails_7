@@ -1,0 +1,87 @@
+<%= form_with(model: role) do |form| %>
+  <% if role.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(role.errors.count, "error") %> prohibited this role from being saved:</h2>
+
+      <ul>
+        <% role.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :admin, style: "display: block" %>
+    <%= form.check_box :admin %>
+  </div>
+
+  <div>
+    <%= form.label :salesman, style: "display: block" %>
+    <%= form.check_box :salesman %>
+  </div>
+
+  <div>
+    <%= form.label :accountant, style: "display: block" %>
+    <%= form.check_box :accountant %>
+  </div>
+
+  <div>
+    <%= form.label :storekeeper, style: "display: block" %>
+    <%= form.check_box :storekeeper %>
+  </div>
+
+  <div>
+    <%= form.label :designer, style: "display: block" %>
+    <%= form.check_box :designer %>
+  </div>
+
+  <div>
+    <%= form.label :imports, style: "display: block" %>
+    <%= form.check_box :imports %>
+  </div>
+
+  <div>
+    <%= form.label :constractions, style: "display: block" %>
+    <%= form.check_box :constractions %>
+  </div>
+
+  <div>
+    <%= form.label :headofDesign, style: "display: block" %>
+    <%= form.check_box :headofDesign %>
+  </div>
+
+  <div>
+    <%= form.label :headofSales, style: "display: block" %>
+    <%= form.check_box :headofSales %>
+  </div>
+
+  <div>
+    <%= form.label :headofStorehouse, style: "display: block" %>
+    <%= form.check_box :headofStorehouse %>
+  </div>
+
+  <div>
+    <%= form.label :headofImports, style: "display: block" %>
+    <%= form.check_box :headofImports %>
+  </div>
+
+  <div>
+    <%= form.label :headofConstractions, style: "display: block" %>
+    <%= form.check_box :headofConstractions %>
+  </div>
+
+  <div>
+    <%= form.label :roleDescription, style: "display: block" %>
+    <%= form.text_field :roleDescription %>
+  </div>
+
+  <div>
+    <%= form.label :printer, style: "display: block" %>
+    <%= form.check_box :printer %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

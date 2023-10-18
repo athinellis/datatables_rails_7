@@ -1,0 +1,82 @@
+<%= form_with(model: employee) do |form| %>
+  <% if employee.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+        <% employee.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :role_id, style: "display: block" %>
+    <%= form.text_field :role_id %>
+  </div>
+
+  <div>
+    <%= form.label :department_id, style: "display: block" %>
+    <%= form.text_field :department_id %>
+  </div>
+
+  <div>
+    <%= form.label :employeeName, style: "display: block" %>
+    <%= form.text_area :employeeName %>
+  </div>
+
+  <div>
+    <%= form.label :employeeEmail, style: "display: block" %>
+    <%= form.text_area :employeeEmail %>
+  </div>
+
+  <div>
+    <%= form.label :employeeMobile, style: "display: block" %>
+    <%= form.text_area :employeeMobile %>
+  </div>
+
+  <div>
+    <%= form.label :employeeStartDate, style: "display: block" %>
+    <%= form.date_field :employeeStartDate %>
+  </div>
+
+  <div>
+    <%= form.label :employeeEndDate, style: "display: block" %>
+    <%= form.date_field :employeeEndDate %>
+  </div>
+
+  <div>
+    <%= form.label :employeeStatus, style: "display: block" %>
+    <%= form.check_box :employeeStatus %>
+  </div>
+
+  <div>
+    <%= form.label :employeeComments, style: "display: block" %>
+    <%= form.text_area :employeeComments %>
+  </div>
+
+  <div>
+    <%= form.label :carNumber, style: "display: block" %>
+    <%= form.text_area :carNumber %>
+  </div>
+
+  <div>
+    <%= form.label :password, style: "display: block" %>
+    <%= form.text_area :password %>
+  </div>
+
+  <div>
+    <%= form.label :password_confirmation, style: "display: block" %>
+    <%= form.text_area :password_confirmation %>
+  </div>
+
+
+
+
+
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

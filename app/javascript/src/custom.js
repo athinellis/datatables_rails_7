@@ -15,16 +15,30 @@ $(document).ready(function () {
 
 
 $(document).ready(function () {
-  $('#example_3').DataTable({
+    var table_visits_salesman_datatable = $('#example_3').DataTable({
       mark: true,
+      searching: false,
       processing: false,
       serverSide: true,
       "columnDefs": [{
         "targets": [4,5,6],
           "orderable": false
         }],
-      ajax: $(this).data('url')
+      ajax: {
+          url: $(this).data('url'),
+          data: function (d) {
+              d.customerName = $('#data-column-customerName').val();
+          }
+      }
     });
+
+
+
+    $('.search-input-text').on('change', function () {   // for text boxes
+        table_visits_salesman_datatable.draw();
+    });
+
+
 });
 
 //change the size of the datatables search box:

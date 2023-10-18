@@ -49,6 +49,14 @@ class UsersDatatable < ApplicationDatatable
     #users = users.where(search_string.join(' or '), search: "%#{params[:search][:value]}%")
    
     users = User.order("#{sort_column} #{sort_direction}")
+
+    puts params.to_json
+
+    # Αν έχει επιλεγεί μόνο το πρώτο επίπεδο
+    if params[:customerName].present?
+      users = users.where('first_name = :search', search: "#{params[:customerName]}")
+    end
+
     users = users.page(page).per(per_page)
     users = users.where(search_string.join(' or '), search: "%#{params[:search][:value]}%") 
    end
