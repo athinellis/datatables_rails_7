@@ -51,5 +51,5 @@ test:
 production:
   <<: *default
   database: untitled10_production
-  username: root
-  password: spap123
+ # username: root
+ # password: spap123
