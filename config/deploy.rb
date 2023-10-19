@@ -9,7 +9,7 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bund
 set :keep_releases, 5
 #set :shared_children, shared_children + %w{private/uploads/drawing private/uploads/painting}
 
-
+set :linked_files, %w{config/master.key}
 
 
 
