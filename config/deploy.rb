@@ -5,10 +5,25 @@ set :scm, :git
 set :application, 'testapp'
 set :repo_url, '/home/deploy/git-repo/my-git-repo.git'
 set :deploy_to, '/opt/www/testapp'
-append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'#set :linked_dirs, fetch(:linked_dirs) + %w{private/uploads/drawing private/uploads/painting}
 set :keep_releases, 5
 #set :shared_children, shared_children + %w{private/uploads/drawing private/uploads/painting}
+set :user, 'deploy'
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets}
 
+namespace :deploy do
+
+  %w[start stop restart].each do |command|
+    desc 'Manage Unicorn'
+    task command do
+      on roles(:app), in: :sequence, wait: 1 do
+        execute "/etc/init.d/unicorn_#{fetch(:application)} #{command}"
+      end
+    end
+  end
+
+  after :publishing, :restart
+
+end
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
