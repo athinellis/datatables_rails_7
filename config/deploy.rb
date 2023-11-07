@@ -1,17 +1,20 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.17.2"
 
-set :scm, :git
-set :application, 'testapp'
-set :repo_url, '/home/deploy/git-repo/my-git-repo.git'
-set :deploy_to, '/opt/www/testapp'
-append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'#set :linked_dirs, fetch(:linked_dirs) + %w{private/uploads/drawing private/uploads/painting}
+set :application, "datatables_rails_7"
+set :repo_url, "https://github.com/athinellis/datatables_rails_7.git"
+
+# Deploy to the user's home directory
+set :deploy_to, "/home/ellis/#{fetch :application}"
+
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
+
+# Only keep the last 5 releases to save disk space
 set :keep_releases, 5
-#set :shared_children, shared_children + %w{private/uploads/drawing private/uploads/painting}
 
-set :linked_files, %w{config/master.key}
-
-
+# Optionally, you can symlink your database.yml and/or secrets.yml file from the shared directory during deploy
+# This is useful if you don't want to use ENV variables
+# append :linked_files, 'config/database.yml', 'config/secrets.yml'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp

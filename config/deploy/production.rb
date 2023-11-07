@@ -6,14 +6,9 @@
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
-server '3.249.120.248', user: 'deploy', roles: %w{web app db}
+server '159.65.24.94', user: 'ellis', roles: %w{web app db}
 
 
-set :ssh_options, {
-  keys: File.expand_path('/home/trimed/Desktop/test2.pem'),
-  forward_agent: true,
-  auth_methods: ["publickey"]
-}
 
 
 
